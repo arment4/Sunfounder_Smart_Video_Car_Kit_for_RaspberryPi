@@ -11,7 +11,7 @@ top.title('Sunfounder Raspberry Pi Smart Video Car')
 #Soy Puto
 #HOST = '192.168.1.108'
 #HOST = '192.168.1.93'    # Server(Raspberry Pi) IP address casa
-HOST = '192.168.1.68'    # Server(Raspberry Pi) IP address oficina
+HOST = '192.168.1.104'    # Server(Raspberry Pi) IP address oficina
 PORT = 21567
 BUFSIZ = 1024             # buffer size
 ADDR = (HOST, PORT)

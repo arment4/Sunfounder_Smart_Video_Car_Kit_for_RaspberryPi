@@ -65,7 +65,13 @@ while close==0:
 	# client socket for the subsequent communication. By default, the function accept() is a blocking 
 	# one, which means it is suspended before the connection comes.
 	tcpCliSock, addr = tcpSerSock.accept() 
-
+	ret, frame = cam.read()
+    result, frame = cv2.imencode('.jpg', frame, encode_param)
+	data = pickle.dumps(frame, 0)
+    size = len(data)
+    #print("{}: {}".format(img_counter, size))
+    client_socket.sendall(struct.pack(">L", size) + data)
+    img_counter += 1
 	print '...connected from :', addr     # Print the IP address of the client connected with the server.
 	while True:
         array=["",0,0,0,0]
@@ -166,9 +172,9 @@ while close==0:
 		#array[0]=img_path
 		#cv2.imwrite(img_path,image)
 		#matrix.append(array)
-with open(csv_path_file, 'w') as writeFile:
-    writer = csv.writer(writeFile)
-    writer.writerows(matrix)
+#with open(csv_path_file, 'w') as writeFile:
+    #writer = csv.writer(writeFile)
+    #writer.writerows(matrix)
 
 
 
