@@ -166,15 +166,9 @@ while close==0:
 		#array[0]=img_path
 		#cv2.imwrite(img_path,image)
 		#matrix.append(array)
-with open(csv_path_file, 'w') as writeFile:
-    writer = csv.writer(writeFile)
-    writer.writerows(matrix)
-
-
 
 
 camera.release()
-writeFile.close()
 tcpSerSock.close()
 print 'save data'
 
